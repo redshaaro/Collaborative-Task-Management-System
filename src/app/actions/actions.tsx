@@ -46,3 +46,32 @@ export const deleteTask = async (id: string) => {
 
 
 }
+export const updateTask = async (id: string, formData: FormData) => {
+    const title = formData.get("title")
+    const status = formData.get("status")
+    const category = formData.get("cat") as string
+
+    try {
+        await prisma.task.update({
+            where: { id: id as string },
+
+            data: {
+                title: title as string,
+                status: status as string,
+                categoryId: category
+
+
+            },
+            include: { category: true }
+
+
+
+
+        })
+        revalidatePath("/")
+
+    } catch (err) {
+        console.log(err)
+    }
+
+}
