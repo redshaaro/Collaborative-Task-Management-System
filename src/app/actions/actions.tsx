@@ -75,3 +75,47 @@ export const updateTask = async (id: string, formData: FormData) => {
     }
 
 }
+// SUBTASKS
+export const createSubTask = async (formData: FormData) => {
+    const session = await auth();
+
+
+    const title = formData.get("title")
+    const desc = formData.get("desc")
+    const parentId = formData.get("parentId")
+    try {
+        await prisma.task.create({
+            data: {
+                userId: session?.user?.id as string,
+                title: title as string,
+                description: desc as string,
+                parentId: parentId as string
+
+            },
+        })
+        revalidatePath(`/task/${parentId}`)
+
+    } catch (err) {
+        console.log(err)
+    }
+
+
+}
+
+
+export const updateSubtaskStatus = async (id: string, newStatus: string) => {
+    try {
+        await prisma.task.update({
+            where: { id },
+            data: { status: newStatus },
+        });
+        revalidatePath(`/task/${id}`)
+
+
+    } catch (err) {
+        console.error("Error updating subtask status:", err);
+        throw err;
+    }
+};
+
+

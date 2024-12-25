@@ -30,6 +30,8 @@ model User {
   updatedAt DateTime @updatedAt
 
   UserTask UserTask[]
+
+  TaskLog TaskLog[]
 }
 
 model Account {
@@ -99,11 +101,17 @@ model Task {
   categoryId String?
   category   Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
 
+  parentId String? // لإضافة علاقة ذاتية مع المهام الأخرى
+  parent   Task?   @relation("Subtasks", fields: [parentId], references: [id], onDelete: Cascade)
+  children Task[]  @relation("Subtasks")
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   UserTask    UserTask[]
   invitations Invitation[]
+
+  TaskLog TaskLog[]
 }
 
 model Invitation {
@@ -125,9 +133,12 @@ model Invitation {
 
 // Optional: Model for Categories
 model Category {
-  id    String @id @default(cuid())
-  name  String @unique
-  tasks Task[]
+  id       String     @id @default(cuid())
+  name     String     @unique
+  parentId String?
+  parent   Category?  @relation("Subcategories", fields: [parentId], references: [id], onDelete: Cascade)
+  children Category[] @relation("Subcategories")
+  tasks    Task[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -139,8 +150,22 @@ model UserTask {
   userId String
   taskId String
 
+  role String @default("Assignee") // يمكن أن تكون "Assignee" أو "Reviewer" أو أي دور آخر
+
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   task Task @relation(fields: [taskId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
+}
+
+model TaskLog {
+  id        String   @id @default(cuid())
+  taskId    String
+  userId    String
+  action    String // "Created", "Updated", "Assigned", "Completed", etc.
+  details   String? // أي تفاصيل إضافية
+  createdAt DateTime @default(now())
+
+  task Task @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
