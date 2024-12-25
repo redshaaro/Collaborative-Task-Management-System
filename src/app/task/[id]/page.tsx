@@ -17,7 +17,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
             <div className='text-[30px] font-extrabold'>{task?.title}</div>
             <div className='m-2 text-[#969cb0]'> {task?.description}</div>
 
-            <div className='p-3 w-full m-2 flex flex-col items-center justify-center border-2 border-[#f6c75c] border-solid'>
+            <div className='p-3 w-full lg:w-[60%] m-2 flex flex-col items-center justify-center border-2 border-[#f6c75c] border-solid'>
                 <div className='flex justify-around  items-center w-full'>
                     <div className=' text-[#969cb0] '>Status:</div>
                     <div className='m-2 bg-[#f9f4d7] p-[5px] font-[700] text-[#dbb12c] rounded-full '>{task?.status}</div>
