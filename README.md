@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# TaskSphere
 
-First, run the development server:
+A powerful task management system built for collaboration, leveraging modern web technologies like **Next.js**, **Prisma**, and **Tailwind CSS**. This app allows users to create, manage, and collaborate on tasks seamlessly, with features tailored for a productive and secure experience.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **User Registration**: Securely register and manage user accounts.
+ - **Task Management**: **Create, Edit, and Delete Tasks**: Full CRUD support for tasks.
+- **Subtasks**:
+  - Add subtasks to tasks for better organization.
+  - Mark subtasks as complete or pending.
+- **Task Status**: Tasks can be marked as "To-Do," "In Progress," or "Done."
+- **Collabration**:
+- Invitations:
+  - Invite other users to collaborate on tasks via email.
+  - Secure invitation system with tokens that invalidate after use.
+- **Collaborator Roles**:
+  - View collaborators assigned to a task.
+  - See collaborators’ names or "You" for the signed-in user.
+- **Categories**:
+- Personalized Task Categories:
+  - Create and organize tasks under custom categories unique to each user.
+### Security
+- **Token-Based Access**:
+  - Invitation tokens ensure secure collaboration links.
+  - Tokens become invalid after acceptance or rejection.
+  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Tech Stack 🛠️
 
-To learn more about Next.js, take a look at the following resources:
+**Client:**  
+- Next.js (as a React framework)  
+- React  
+- Tailwind CSS  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Server:**  
+- Node.js  
+- Prisma  
+- PostgreSQL  
+- Supabase  
+- Nodemailer 
+**Authentication:**  
+- AuthJs  
+ 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+ 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Feedback
+
+If you have any feedback, please reach out to us at shaarawyziad121@gmail.com or 01146004472
+
+##Screenshots
+**Tasks view**
+![image](https://github.com/user-attachments/assets/ae6f5e47-c26c-46bf-876d-594d488023f0)
+**Creating task form**
+![image](https://github.com/user-attachments/assets/329e7fbd-31a3-40fe-bc79-12b6811420e7)
+**Task Page and Subtasks**
+![image](https://github.com/user-attachments/assets/59a5b20e-3b15-4bba-aec7-ff21f9f8e8c8)
+
+**Invite Collabrator to task page**
+![image](https://github.com/user-attachments/assets/0317fc89-9190-45e5-be24-c7c145780ef3)
+
+**Invitation Email**
+![image](https://github.com/user-attachments/assets/9928f582-66e0-41b2-a008-371fed63b562)
+
+**Accept/reject invitation page**
+![image](https://github.com/user-attachments/assets/634a44de-24af-4d81-a4da-471f5e7c8975)
+
+
+
+
+
+
+
+
+
+
