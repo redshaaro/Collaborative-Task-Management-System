@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import MobileMenuButton from './buttons/MobileMenuButton';
+import { signOut } from "next-auth/react"
 
 const MobileMenu = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -30,8 +31,7 @@ const MobileMenu = () => {
                     <ul className="flex flex-col items-center justify-evenly  text-[20px] h-full gap-6">
                         <li><Link href="/categories">Categories</Link></li>
                         <li><Link href="/invitations">Invitations</Link></li>
-                        <li><Link href="/settings">Settings</Link></li>
-                        <li><Link href="/logout">Logout</Link></li>
+                        <li className='pointer-cutsor' onClick={() => { signOut() }} >logout</li>
                     </ul>
                 </div>
             )}

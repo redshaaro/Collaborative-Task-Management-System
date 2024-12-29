@@ -1,15 +1,19 @@
+"use client";
 
-import { signIn } from "@/app/auth"
+import { signIn } from "next-auth/react";
+import { useSearchParams } from "next/navigation";
 
 export default function SignIn() {
+    const searchParams = useSearchParams();
+    const redirectTo = searchParams.get("redirectTo") || "/";
+
+    const handleSignIn = async () => {
+        await signIn("google", { callbackUrl: redirectTo });
+    };
+
     return (
-        <form
-            action={async () => {
-                "use server"
-                await signIn("google", { redirectTo: "/" })
-            }}
-        >
-            <button type="submit">login</button>
-        </form>
-    )
-} 
+        <button type="button" onClick={handleSignIn}>
+            Login
+        </button>
+    );
+}

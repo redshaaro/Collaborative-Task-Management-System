@@ -6,7 +6,6 @@ import { getTasks } from './lib/tasks';
 
 
 import DeskTopTask from './components/DeskTopTask';
-import Navbar from './components/Navbar';
 import MobileTask from './components/MobileTask';
 
 
@@ -15,8 +14,8 @@ const Home = async () => {
   const tasks = await getTasks();
 
   if (!session?.user) {
-    redirect('/register');
-  }
+    redirect("/signinredirect?redirectTo=/");
+}
 
   return (
     <>

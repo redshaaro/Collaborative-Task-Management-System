@@ -5,6 +5,7 @@ export type Task = {
     category?: {
       name: string|null
     };
+    isCreatedByUser:boolean
   };
   export type ButtonProps = {
     text: string;

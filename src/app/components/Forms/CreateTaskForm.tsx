@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Button from '../buttons/Button';
-import { createTask, updateTask } from "@/app/actions/actions";
+import { createTask } from "@/app/actions/actions";
 type categories = {
     name: string;
     id: string;
