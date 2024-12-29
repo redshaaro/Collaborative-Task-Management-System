@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import SignIn from "../components/buttons/SignIn-Button";
 
 const SignInRedirectPage = () => {
@@ -9,7 +9,10 @@ const SignInRedirectPage = () => {
                 <p className="text-black mb-6">
                     Discover a better way to manage tasks and collaborate effortlessly.{" "}
                     <span className="text-blue-600 underline cursor-pointer hover:text-blue-800">
-                        <SignIn />
+                        <Suspense>
+                            <SignIn />
+
+                        </Suspense>
                     </span>{" "}
                     now and get started.
                 </p>
