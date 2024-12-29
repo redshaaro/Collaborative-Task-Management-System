@@ -73,6 +73,10 @@ If you have any feedback, please reach out to us at shaarawyziad121@gmail.com or
 ![image](https://github.com/user-attachments/assets/634a44de-24af-4d81-a4da-471f5e7c8975)
 
 
+**NOTE !!!**
+-The website still needs form validation, code refactoring and some animation and I'm working on it now thank you !!!
+
+
 
 
 
